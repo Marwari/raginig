@@ -1,26 +1,8 @@
-# Caddy Deployment Guide for raginig.com
+# Deployment Guide — raginig.com (Port 5557)
 
-Since your server uses **Caddy**, setup is simpler and faster because Caddy handles **automatic SSL/HTTPS certificates** without needing manual certbot renewal scripts.
+## 1. Start Docker Container (Port 5557)
 
----
-
-## Architecture
-
-```
-[ Visitor / Browser ]
-         │
-         ▼ (Port 80 / 443 with Auto-SSL)
-[ Caddy on Host Server ]
-         │
-         ▼ (Reverse proxy to localhost:8080)
-[ Docker Container (raginig_portal) ]
-```
-
----
-
-## 1. Run the Docker Container on the Server
-
-On your server (`139.59.79.147`):
+On your server:
 
 ```bash
 cd /var/www/raginig_portal
@@ -30,27 +12,18 @@ docker compose up -d --build
 
 ---
 
-## 2. Configure Caddyfile on Your Server
+## 2. Configure Caddyfile
 
-Open your host server's Caddyfile:
-
-```bash
-nano /etc/caddy/Caddyfile
-```
-
-Add the block:
+Add to `/etc/caddy/Caddyfile`:
 
 ```caddyfile
 raginig.com, www.raginig.com {
-    reverse_proxy localhost:8080
+    reverse_proxy localhost:5557
 }
 ```
 
-Reload Caddy to apply changes:
+Reload Caddy:
 
 ```bash
 systemctl reload caddy
-# or: caddy reload --config /etc/caddy/Caddyfile
 ```
-
-Caddy will automatically fetch and manage free SSL certificates for `raginig.com` and `www.raginig.com`! 🎉

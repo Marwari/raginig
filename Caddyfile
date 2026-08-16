@@ -1,18 +1,3 @@
-# Caddy configuration for raginig.com
-# Add this block to your /etc/caddy/Caddyfile on your server
-
 raginig.com, www.raginig.com {
-    # Reverse proxy to the Docker container on port 8080
-    reverse_proxy localhost:8080
-
-    # Caddy automatically manages free SSL certificates (HTTPS), HTTP/2, and HTTP/3
+    reverse_proxy localhost:5557
 }
-
-# ------------------------------------------------------------------------------
-# ALTERNATIVE: Direct Static File Serving (If not using Docker)
-# ------------------------------------------------------------------------------
-# raginig.com, www.raginig.com {
-#     root * /var/www/raginig_portal
-#     file_server
-#     encode gzip zstd
-# }
