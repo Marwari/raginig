@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Ragini Gupta | Department of Chemistry, ITM Gorakhpur</title>
+  <meta name="description" content="Official courseware and study materials by Dr. Ragini Gupta, Department of Chemistry at ITM Gorakhpur for AKTU B.Tech Applied Chemistry.">
+  
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Note Reader Modal -->
+  <div id="note-modal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <span class="modal-tag" id="modal-tag">Unit Notes</span>
+          <h2 id="modal-title">Note Title</h2>
+        </div>
+        <button class="icon-close" id="modal-close-btn" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-content" id="modal-body">
+        <!-- Injected via JS -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="modal-print-btn">Print View</button>
+        <button class="btn btn-primary" id="modal-download-btn">Download PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-wrap">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="header-content">
+        <div class="brand">
+          <a href="#" class="brand-title">Dr. Ragini Gupta</a>
+          <span class="brand-desc">Department of Chemistry &bull; ITM Gorakhpur</span>
+        </div>
+        <nav class="nav">
+          <a href="#notes">Lecture Notes</a>
+          <a href="#assignments">Assignments</a>
+          <a href="#office-hours">Office Hours &amp; Contact</a>
+          <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle color theme">
+            <span class="theme-icon" id="theme-icon">🌙</span>
+            <span class="theme-label" id="theme-label">Dark Mode</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- Intro Section -->
+      <section class="intro-section">
+        <div class="term-badge">AKTU B.Tech Applied Chemistry &bull; Session 2026–2027</div>
+        <h1 class="page-headline">Applied Chemistry Courseware</h1>
+        <p class="intro-text">
+          Official course notes, numerical handouts, and assignment problem sheets for B.Tech students at ITM Gorakhpur.
+        </p>
+
+        <div class="quick-actions">
+          <button class="btn btn-primary" id="btn-download-syllabus">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            Download Syllabus (AAS102A / AAS102D)
+          </button>
+          <a href="#office-hours" class="btn btn-outline">Faculty Office Hours</a>
+        </div>
+
+        <div class="notice-box">
+          <span class="notice-label">Notice</span>
+          <p><strong>Course Materials Available:</strong> Complete comprehensive lecture notes for <strong>Unit I (Chemistry of Hardware Materials)</strong> and <strong>Unit III (Water Chemistry and Treatment)</strong> are published below for download.</p>
+        </div>
+      </section>
+
+      <!-- Lecture Notes Section (Only the 2 Official Units) -->
+      <section class="section" id="notes">
+        <div class="section-top">
+          <div>
+            <h2 class="section-title">Course Lecture Notes</h2>
+            <p class="section-subtitle">Official handouts with theory, derivations, reaction mechanisms, and solved numericals.</p>
+          </div>
+        </div>
+
+        <div class="notes-list" id="notes-list">
+          <!-- Dynamically populated via app.js -->
+        </div>
+      </section>
+
+      <!-- Assignments Section -->
+      <section class="section" id="assignments">
+        <div class="section-top">
+          <div>
+            <h2 class="section-title">Tutorial &amp; Assignment Problem Sheets</h2>
+            <p class="section-subtitle">Practice numerical sets covering water hardness, zeolite calculations, and PCB track resistances.</p>
+          </div>
+        </div>
+
+        <div class="assignment-list" id="assignment-list">
+          <!-- Dynamically populated via app.js -->
+        </div>
+      </section>
+
+      <!-- Office Hours & Contact Section -->
+      <section class="section" id="office-hours">
+        <div class="section-top">
+          <div>
+            <h2 class="section-title">Faculty Chamber &amp; Contact</h2>
+            <p class="section-subtitle">Academic guidance, lab record submissions, and student consultation timings.</p>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <div class="info-card">
+            <h3>Office Hours &amp; Location</h3>
+            <p class="card-desc">Dr. Ragini Gupta &bull; Faculty Chamber 204, Academic Block A</p>
+            <ul class="schedule-list">
+              <li>
+                <strong>Monday &amp; Wednesday</strong>
+                <span>2:30 PM – 4:30 PM (Doubt Clearing &amp; Consultations)</span>
+              </li>
+              <li>
+                <strong>Thursday</strong>
+                <span>3:00 PM – 4:30 PM (Tutorial &amp; Numerical Practice)</span>
+              </li>
+              <li>
+                <strong>Friday</strong>
+                <span>11:30 AM – 1:00 PM (Lab Inquiries &amp; Record Verification)</span>
+              </li>
+            </ul>
+            <div class="email-row">
+              <span>Official Email:</span>
+              <a href="mailto:ragini.gupta@itmgkp.edu.in" class="email-link">ragini.gupta@itmgkp.edu.in</a>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Department Information</h3>
+            <p class="card-desc">Institute of Technology &amp; Management (ITM), Gorakhpur</p>
+            <div class="dept-details">
+              <div class="detail-row">
+                <span class="detail-label">Campus Address:</span>
+                <span class="detail-value">NH-24, Gida, Gorakhpur, Uttar Pradesh 273209</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Subjects:</span>
+                <span class="detail-value">AKTU B.Tech Applied Chemistry (AAS102A / AAS202A / AAS102D)</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Chemistry Laboratory:</span>
+                <span class="detail-value">Room 108, Ground Floor, Academic Block A</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Minimalist Footer -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p>&copy; 2026 Dr. Ragini Gupta &bull; Department of Chemistry &bull; ITM Gorakhpur</p>
+        <p class="footer-sub">AKTU B.Tech Applied Chemistry Portal &bull; ITM Gorakhpur</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
