@@ -453,6 +453,10 @@ body {
   opacity: 0.85;
 }
 
+.syllabus-link .drive-icon {
+  flex-shrink: 0;
+}
+
 .syllabus-link .ext-icon {
   margin-left: auto;
   opacity: 0.5;
