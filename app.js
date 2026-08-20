@@ -366,21 +366,30 @@ const SYLLABUS_DATA = [
     branch: 'Electronics & Communication Engineering (ECE)',
     code: 'B.Tech ECE',
     icon: '📡',
-    docs: []
+    docs: [
+      { label: 'Theory Syllabus', url: 'https://drive.google.com/file/d/1Bq1yx7iEJbE1hB0OxV0G2vgbXUlvQu2K/view?usp=sharing' },
+      { label: 'Lab / Practical Syllabus', url: 'https://drive.google.com/file/d/1ARXVgSXew0c1XvsWHYNuwwrGwBPNL7lP/view?usp=sharing' }
+    ]
   },
   {
     id: 'me',
     branch: 'Mechanical Engineering (ME)',
     code: 'B.Tech ME',
     icon: '⚙️',
-    docs: []
+    docs: [
+      { label: 'Theory Syllabus', url: 'https://drive.google.com/file/d/1_2t3jlHuPkUaWUTkRM-VbU4eN6trS6Jv/view?usp=sharing' },
+      { label: 'Lab / Practical Syllabus', url: 'https://drive.google.com/file/d/1JKVURFfrU07FEpwf1vTGkeuDVEtDf-Z7/view?usp=sharing' }
+    ]
   },
   {
     id: 'ce',
     branch: 'Civil Engineering (CE)',
     code: 'B.Tech CE',
     icon: '🏗️',
-    docs: []
+    docs: [
+      { label: 'Theory Syllabus', url: 'https://drive.google.com/file/d/1Qt5MhDMcg6OxjAusQvSYHVQis4Ud5b2J/view?usp=sharing' },
+      { label: 'Lab / Practical Syllabus', url: 'https://drive.google.com/file/d/14g6EM_HwQOxsvm_Pf6YfkA6w8SSOt2up/view?usp=sharing' }
+    ]
   },
   {
     id: 'ee',
