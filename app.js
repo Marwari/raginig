@@ -6,9 +6,9 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
+  initSyllabus();
   initNotes();
   initAssignments();
-  initSyllabusDownload();
 });
 
 /* ==========================================================================
@@ -348,45 +348,107 @@ INSTRUCTIONS FOR STUDENTS:
 }
 
 /* ==========================================================================
-   4. Downloads & Syllabus
+   4. AKTU Syllabus 2026 — Branch-wise
    ========================================================================== */
-function initSyllabusDownload() {
-  const btn = document.getElementById('btn-download-syllabus');
-  if (btn) {
-    btn.addEventListener('click', () => {
-      downloadDocumentFile('AKTU_Applied_Chemistry_Syllabus_DrRaginiGupta_ITM.pdf', `========================================================================
-DR. RAGINI GUPTA — DEPARTMENT OF CHEMISTRY, ITM GORAKHPUR
-AKTU B.TECH APPLIED CHEMISTRY SYLLABUS & EVALUATION SCHEME
-Course Codes: AAS102A / AAS202A / AAS102D / AAS202D
-========================================================================
-
-UNIT I: CHEMISTRY OF HARDWARE MATERIALS (AAS102D/AAS202D)
-- Basic chemistry of hardware materials (Metals, Semiconductors, Polymers, Ceramics)
-- Silicon and doping chemistry (Intrinsic, Extrinsic n-type & p-type, Mass-action law)
-- Electronic structure and energy bands (Conductors, Semiconductors, Insulators)
-- Chemistry of PCB materials (FR-4 composite, Copper etching, Surface finishes)
-- Soldering chemistry (SAC305, Eutectic alloys, Flux mechanisms, Intermetallics)
-- Insulators & Dielectrics (Polarisation mechanisms, Dielectric constant & loss)
-- Reliability and corrosion (Electrochemical migration, Galvanic corrosion)
-
-UNIT III: WATER CHEMISTRY AND TREATMENT (AAS102A/AAS202A)
-- Molecular structure & polarity of water, physical & chemical properties
-- Hardness of water (Temporary & Permanent hardness, Units, CaCO3 equivalent)
-- Alkalinity of water (P & M titration interpretation)
-- Dissolved Oxygen (DO by Winkler Method), BOD5 & COD
-- Conventional water treatment (Coagulation, Flocculation, Sedimentation, Filtration)
-- Disinfection methods (Chlorination, Breakpoint, UV, Ozonation)
-- Zeolite/Permutit softening process & regeneration calculations
-- Ion-Exchange demineralization process, mixed-bed deioniser & regeneration calculations
-
-EVALUATION SCHEME:
-- Class Tests & Sessional Assessment: 30 Marks
-- Practical / Laboratory Record: 20 Marks
-- End Semester University Examination: 50 Marks
-========================================================================`);
-    });
+const SYLLABUS_DATA = [
+  {
+    id: 'cse',
+    branch: 'Computer Science Engineering (CSE)',
+    code: 'B.Tech CSE',
+    icon: '💻',
+    docs: [
+      { label: 'Theory Syllabus', url: 'https://drive.google.com/file/d/1eZNAB2L0EvQIDZFPYUgNXBVvt8PiVVgA/view?usp=sharing' },
+      { label: 'Lab / Practical Syllabus', url: 'https://drive.google.com/file/d/1eCovf3N2LbxUmexXAm1hVM8L1_0_-j1I/view?usp=sharing' }
+    ]
+  },
+  {
+    id: 'ece',
+    branch: 'Electronics & Communication Engineering (ECE)',
+    code: 'B.Tech ECE',
+    icon: '📡',
+    docs: []
+  },
+  {
+    id: 'me',
+    branch: 'Mechanical Engineering (ME)',
+    code: 'B.Tech ME',
+    icon: '⚙️',
+    docs: []
+  },
+  {
+    id: 'ce',
+    branch: 'Civil Engineering (CE)',
+    code: 'B.Tech CE',
+    icon: '🏗️',
+    docs: []
+  },
+  {
+    id: 'ee',
+    branch: 'Electrical Engineering (EE)',
+    code: 'B.Tech EE',
+    icon: '⚡',
+    docs: []
   }
+];
+
+function initSyllabus() {
+  const grid = document.getElementById('syllabus-grid');
+  if (!grid) return;
+
+  grid.innerHTML = SYLLABUS_DATA.map(branch => {
+    const hasDocs = branch.docs.length > 0;
+
+    const docsHtml = hasDocs
+      ? branch.docs.map(doc => `
+          <a href="${doc.url}" target="_blank" rel="noopener noreferrer" class="syllabus-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            ${doc.label}
+            <svg class="ext-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        `).join('')
+      : `<div class="syllabus-coming-soon">
+           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+           Coming Soon — Syllabus will be uploaded shortly
+         </div>`;
+
+    return `
+      <div class="syllabus-card ${hasDocs ? '' : 'syllabus-card--pending'}">
+        <div class="syllabus-card-header" data-branch="${branch.id}">
+          <div class="syllabus-card-left">
+            <span class="syllabus-icon">${branch.icon}</span>
+            <div>
+              <h3 class="syllabus-branch">${branch.branch}</h3>
+              <span class="syllabus-code">${branch.code}</span>
+            </div>
+          </div>
+          <div class="syllabus-card-right">
+            ${hasDocs ? `<span class="syllabus-status syllabus-status--available">Available</span>` : `<span class="syllabus-status syllabus-status--pending">Pending</span>`}
+            <svg class="syllabus-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="syllabus-card-body" id="syllabus-body-${branch.id}">
+          ${docsHtml}
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  // Accordion toggle
+  grid.querySelectorAll('.syllabus-card-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const card = header.closest('.syllabus-card');
+      card.classList.toggle('syllabus-card--open');
+    });
+  });
+
+  // Auto-expand CSE since it has content
+  const cseCard = grid.querySelector('[data-branch="cse"]')?.closest('.syllabus-card');
+  if (cseCard) cseCard.classList.add('syllabus-card--open');
 }
+
+/* ==========================================================================
+   5. Downloads Helper
+   ========================================================================== */
 
 function downloadDocumentFile(filename, text) {
   const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });

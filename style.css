@@ -325,6 +325,149 @@ body {
   border-color: var(--text-main);
 }
 
+/* Syllabus Grid */
+.syllabus-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.syllabus-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color 0.15s ease;
+}
+
+.syllabus-card:hover {
+  border-color: var(--border-strong);
+}
+
+.syllabus-card--pending {
+  opacity: 0.75;
+}
+
+.syllabus-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  cursor: pointer;
+  user-select: none;
+  gap: 12px;
+}
+
+.syllabus-card-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.syllabus-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.syllabus-branch {
+  font-size: 0.938rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.syllabus-code {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.syllabus-card-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.syllabus-status {
+  font-size: 0.688rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.syllabus-status--available {
+  background: var(--success-bg);
+  color: var(--success);
+}
+
+.syllabus-status--pending {
+  background: var(--bg-subtle);
+  color: var(--text-faint);
+}
+
+.syllabus-chevron {
+  color: var(--text-muted);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.syllabus-card--open .syllabus-chevron {
+  transform: rotate(180deg);
+}
+
+/* Accordion body — collapse/expand */
+.syllabus-card-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease, padding 0.25s ease;
+  padding: 0 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.syllabus-card--open .syllabus-card-body {
+  max-height: 200px;
+  padding: 4px 18px 16px;
+}
+
+.syllabus-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--accent-text);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  background: var(--accent-light);
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+
+.syllabus-link:hover {
+  opacity: 0.85;
+}
+
+.syllabus-link .ext-icon {
+  margin-left: auto;
+  opacity: 0.5;
+}
+
+.syllabus-coming-soon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.813rem;
+  color: var(--text-faint);
+  padding: 8px 0 4px;
+  font-style: italic;
+}
+
 /* Notes List */
 .notes-list {
   display: flex;
