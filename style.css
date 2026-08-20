@@ -174,18 +174,11 @@ body {
 }
 
 .hero-card {
-  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1e3a8a 100%);
-  border-radius: 14px;
-  padding: 36px 32px;
   margin-bottom: 16px;
 }
 
-[data-theme="dark"] .hero-card {
-  background: linear-gradient(135deg, #1e293b 0%, #1e3a5f 50%, #312e81 100%);
-}
-
 .hero-card .term-badge {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--accent-text);
   font-family: var(--font-mono);
   font-size: 0.7rem;
   font-weight: 600;
@@ -199,13 +192,13 @@ body {
   font-size: clamp(1.8rem, 3.5vw, 2.4rem);
   font-weight: 600;
   line-height: 1.15;
-  color: #ffffff;
+  color: var(--text-main);
   margin-bottom: 10px;
 }
 
 .hero-card .intro-text {
   font-size: 0.938rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-muted);
   line-height: 1.6;
   max-width: 520px;
   margin-bottom: 20px;
@@ -225,12 +218,12 @@ body {
   font-size: 0.875rem;
   font-weight: 500;
   padding: 9px 18px;
-  border-radius: 8px;
+  border-radius: var(--radius);
   cursor: pointer;
   text-decoration: none;
   border: none;
-  background: #ffffff;
-  color: #0f172a;
+  background: var(--text-main);
+  color: var(--bg-body);
   transition: opacity 0.15s ease;
 }
 
@@ -244,18 +237,18 @@ body {
   font-size: 0.875rem;
   font-weight: 500;
   padding: 9px 18px;
-  border-radius: 8px;
+  border-radius: var(--radius);
   cursor: pointer;
   text-decoration: none;
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--bg-surface);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
   transition: all 0.15s ease;
 }
 
 .btn-hero-outline:hover {
-  background: rgba(255, 255, 255, 0.14);
-  color: #ffffff;
+  background: var(--bg-hover);
+  border-color: var(--border-strong);
 }
 
 /* Notice Box */
@@ -898,9 +891,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
   }
-  .hero-card {
-    padding: 28px 24px;
-  }
+
   .note-item, .assignment-item {
     flex-direction: column;
     align-items: flex-start;
