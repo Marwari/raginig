@@ -159,7 +159,7 @@ function initNotes() {
 }
 
 /* ==========================================================================
-   3. Assignments & Tutorials — Branch-wise (Google Drive)
+   3. Course Assignments — Branch-wise (Google Drive)
    ========================================================================== */
 const ASSIGNMENTS_DATA = [
   {
