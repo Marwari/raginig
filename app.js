@@ -159,20 +159,56 @@ function initNotes() {
 }
 
 /* ==========================================================================
-   3. Assignments & Tutorial Problem Sheets
+   3. Assignments & Tutorials — Branch-wise (Google Drive)
    ========================================================================== */
 const ASSIGNMENTS_DATA = [
   {
-    num: 'Problem Sheet #01 &bull; Unit III',
-    title: 'Water Hardness, Zeolite Softening & Ion-Exchange Numericals',
-    due: 'Topic: CaCO₃ Equivalents, NaCl Brine & Acid/Base Regeneration Calculations',
-    file: 'ITM_Chemistry_Unit3_Water_Treatment_Numerical_Sheet.pdf'
+    id: 'assign-cse',
+    branch: 'Computer Science Engineering (CSE)',
+    code: 'B.Tech CSE',
+    icon: '💻',
+    assignments: [
+      { label: 'Assignment 1', url: '' },
+      { label: 'Assignment 2', url: '' },
+      { label: 'Assignment 3', url: '' },
+      { label: 'Assignment 4', url: '' }
+    ]
   },
   {
-    num: 'Problem Sheet #02 &bull; Unit I',
-    title: 'Hardware Materials: Semiconductor Doping & Etching Stoichiometry',
-    due: 'Topic: Copper Track Resistance (R = ρL/A), SAC305 Solder Mass & FeCl₃ Etching',
-    file: 'ITM_Chemistry_Unit1_Hardware_Materials_Problem_Sheet.pdf'
+    id: 'assign-ece',
+    branch: 'Electronics & Communication Engineering (ECE)',
+    code: 'B.Tech ECE',
+    icon: '📡',
+    assignments: [
+      { label: 'Assignment 1', url: '' },
+      { label: 'Assignment 2', url: '' },
+      { label: 'Assignment 3', url: '' },
+      { label: 'Assignment 4', url: '' }
+    ]
+  },
+  {
+    id: 'assign-me',
+    branch: 'Mechanical Engineering (ME)',
+    code: 'B.Tech ME',
+    icon: '⚙️',
+    assignments: [
+      { label: 'Assignment 1', url: '' },
+      { label: 'Assignment 2', url: '' },
+      { label: 'Assignment 3', url: '' },
+      { label: 'Assignment 4', url: '' }
+    ]
+  },
+  {
+    id: 'assign-ce',
+    branch: 'Civil Engineering (CE)',
+    code: 'B.Tech CE',
+    icon: '🏗️',
+    assignments: [
+      { label: 'Assignment 1', url: '' },
+      { label: 'Assignment 2', url: '' },
+      { label: 'Assignment 3', url: '' },
+      { label: 'Assignment 4', url: '' }
+    ]
   }
 ];
 
@@ -180,31 +216,53 @@ function initAssignments() {
   const list = document.getElementById('assignment-list');
   if (!list) return;
 
-  list.innerHTML = ASSIGNMENTS_DATA.map(item => `
-    <div class="assignment-item">
-      <div class="assignment-info">
-        <span class="assignment-num">${item.num}</span>
-        <h3 class="assignment-title">${item.title}</h3>
-        <p class="assignment-due">${item.due}</p>
+  list.innerHTML = ASSIGNMENTS_DATA.map(branch => {
+    const hasAnyUrl = branch.assignments.some(a => a.url);
+
+    const assignmentsHtml = branch.assignments.map(item => {
+      if (item.url) {
+        return `
+          <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="syllabus-link">
+            <svg class="drive-icon" width="18" height="18" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="as${branch.id}${item.label.replace(/\s/g,'')}" width="168" height="154" x="12" y="18" maskUnits="userSpaceOnUse" style="mask-type:alpha"><path fill="#b43333" d="M63.09 37c14.626-25.333 51.193-25.334 65.819 0l45.033 78c14.626 25.334-3.657 57.001-32.91 57.001H50.967c-29.253 0-47.536-31.667-32.91-57.001z"/></mask><g mask="url(#as${branch.id}${item.label.replace(/\s/g,'')})"><path fill="url(#asb${branch.id}${item.label.replace(/\s/g,'')})" d="M206.905 172.02h-91.888l-19.015-32.934 45.944-79.578z"/><path fill="url(#asc${branch.id}${item.label.replace(/\s/g,'')})" d="M-14.919 172.006 50.04 59.494v.002L31.032 92.422h38.02L115 172.004l-129.918.001z"/><path fill="url(#asd${branch.id}${item.label.replace(/\s/g,'')})" d="M96.007-20.085 141.954 59.5l-19.011 32.928H31.048z"/></g><defs><linearGradient id="asb${branch.id}${item.label.replace(/\s/g,'')}" x1="193.6" x2="103.09" y1="165.6" y2="111.21" gradientUnits="userSpaceOnUse"><stop offset=".09" stop-color="#ffe921"/><stop offset="1" stop-color="#fec700"/></linearGradient><linearGradient id="asc${branch.id}${item.label.replace(/\s/g,'')}" x1="114.4" x2="15.53" y1="181.61" y2="121.8" gradientUnits="userSpaceOnUse"><stop offset=".15" stop-color="#a9a8ff"/><stop offset=".33" stop-color="#6d97ff"/><stop offset=".48" stop-color="#3186ff"/></linearGradient><linearGradient id="asd${branch.id}${item.label.replace(/\s/g,'')}" x1="128.88" x2="28.7" y1="37.88" y2="84.64" gradientUnits="userSpaceOnUse"><stop offset=".55" stop-color="#0ebc5f"/><stop offset=".85" stop-color="#78c9ff"/></linearGradient></defs></svg>
+            ${item.label}
+            <svg class="ext-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>`;
+      } else {
+        return `
+          <div class="syllabus-link syllabus-link--disabled">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            ${item.label} — Coming Soon
+          </div>`;
+      }
+    }).join('');
+
+    return `
+      <div class="syllabus-card ${hasAnyUrl ? '' : 'syllabus-card--pending'}">
+        <div class="syllabus-card-header" data-assign="${branch.id}">
+          <div class="syllabus-card-left">
+            <span class="syllabus-icon">${branch.icon}</span>
+            <div>
+              <h3 class="syllabus-branch">${branch.branch}</h3>
+              <span class="syllabus-code">${branch.code}</span>
+            </div>
+          </div>
+          <div class="syllabus-card-right">
+            ${hasAnyUrl ? `<span class="syllabus-status syllabus-status--available">Available</span>` : `<span class="syllabus-status syllabus-status--pending">Coming Soon</span>`}
+            <svg class="syllabus-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="syllabus-card-body" id="assign-body-${branch.id}">
+          ${assignmentsHtml}
+        </div>
       </div>
-      <button class="btn btn-outline btn-sm dl-pset-btn" data-file="${item.file}" data-title="${item.title}">Download Sheet</button>
-    </div>
-  `).join('');
+    `;
+  }).join('');
 
-  list.querySelectorAll('.dl-pset-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const file = e.currentTarget.getAttribute('data-file');
-      const title = e.currentTarget.getAttribute('data-title');
-      downloadDocumentFile(file, `========================================================================
-DR. RAGINI GUPTA — DEPARTMENT OF CHEMISTRY, ITM GORAKHPUR
-TUTORIAL & NUMERICAL PROBLEM SHEET
-Topic: ${title}
-========================================================================
-
-INSTRUCTIONS FOR STUDENTS:
-1. Solve all numerical problems with proper formulas, given data, units and conversions.
-2. Submit completed handwritten tutorial sheets in the next scheduled chemistry class.
-========================================================================`);
+  // Accordion toggle
+  list.querySelectorAll('.syllabus-card-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const card = header.closest('.syllabus-card');
+      card.classList.toggle('syllabus-card--open');
     });
   });
 }
