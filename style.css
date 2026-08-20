@@ -564,8 +564,15 @@ body {
 .footer-content {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 12px;
+}
+
+.visitor-counter img {
+  border-radius: 4px;
+  display: block;
+  opacity: 0.9;
 }
 
 /* Responsive */
