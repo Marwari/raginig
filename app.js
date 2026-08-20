@@ -390,13 +390,6 @@ const SYLLABUS_DATA = [
       { label: 'Theory Syllabus', url: 'https://drive.google.com/file/d/1Qt5MhDMcg6OxjAusQvSYHVQis4Ud5b2J/view?usp=sharing' },
       { label: 'Lab / Practical Syllabus', url: 'https://drive.google.com/file/d/14g6EM_HwQOxsvm_Pf6YfkA6w8SSOt2up/view?usp=sharing' }
     ]
-  },
-  {
-    id: 'ee',
-    branch: 'Electrical Engineering (EE)',
-    code: 'B.Tech EE',
-    icon: '⚡',
-    docs: []
   }
 ];
 
