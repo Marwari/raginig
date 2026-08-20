@@ -1,14 +1,7 @@
 FROM nginx:alpine
 
-# Custom error page config
-RUN echo 'server { \
-    listen 80; \
-    root /usr/share/nginx/html; \
-    index index.html; \
-    error_page 404 /404.html; \
-    location = /404.html { internal; } \
-    location / { try_files $uri $uri/ =404; } \
-}' > /etc/nginx/conf.d/default.conf
+# Custom error page and server config
+COPY default.conf /etc/nginx/conf.d/default.conf
 
 # Copy static assets
 COPY index.html /usr/share/nginx/html/
