@@ -106,12 +106,11 @@ function renderAccordion(container, data, itemKey, autoOpenId) {
     });
   });
 
-  // Open all cards that have content by default
-  container.querySelectorAll('.syllabus-card').forEach(card => {
-    if (card.querySelector('.syllabus-status--available')) {
-      card.classList.add('syllabus-card--open');
-    }
-  });
+  // Only open the first one (CSE) by default
+  if (autoOpenId) {
+    const firstCard = container.querySelector(`[data-card-id="${autoOpenId}"]`);
+    if (firstCard) firstCard.classList.add('syllabus-card--open');
+  }
 }
 
 /* ==========================================================================
